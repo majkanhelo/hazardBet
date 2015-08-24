@@ -3,12 +3,16 @@ package edu.obymas.projekt.domain.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "USERS")
 public class User {
 	@Id
 	@GeneratedValue
 	private long id;
+	private String userName;
+	
 	public long getId() {
 		return id;
 	}
@@ -17,7 +21,6 @@ public class User {
 		this.id = id;
 	}
 
-	private String userName;
     public String getUserName() {
         return userName;
     }

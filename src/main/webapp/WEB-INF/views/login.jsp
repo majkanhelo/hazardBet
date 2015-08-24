@@ -7,9 +7,10 @@
 <title>Login Page</title>
 </head>
 <body>
+	<a>Enter your name:</a>
 	<form action="home" method="post">
-		<input type="text" name="userName"><br> <input
-			type="submit" value="Login">
+		<input type="text" name="userName"><br> 
+		<input type="submit" value="Login">
 	</form>
 </body>
 </html>

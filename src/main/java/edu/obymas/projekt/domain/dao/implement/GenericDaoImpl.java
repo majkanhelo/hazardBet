@@ -13,7 +13,6 @@ import edu.obymas.projekt.domain.dao.GenericDao;
 
 public abstract class GenericDaoImpl<T> implements GenericDao<T> {
 
-    
     @Autowired
     protected EntityManager entityManager;
 
