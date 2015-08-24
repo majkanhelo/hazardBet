@@ -15,7 +15,11 @@ public class UserServiceImpl implements UserService {
     private UserDao dao;
 
     @Override
-    public void createUser(User u) {
-        dao.create(u);
+    public void createUser(String userName) {
+    	User user=new User();
+    	user.setLogin(userName);
+    	user.setRole_Id(2);
+    	user.setUserPassword("obymas");
+        dao.create(user);
     }
 }

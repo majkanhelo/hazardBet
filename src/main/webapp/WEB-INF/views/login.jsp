@@ -8,8 +8,8 @@
 </head>
 <body>
 	<form action="home" method="post">
-		<input type="text" name="userName"><br> <input
-			type="submit" value="Login">
+		<input type="text" name="userName"><br> 
+		<input type="submit" value="Login">
 	</form>
 </body>
 </html>

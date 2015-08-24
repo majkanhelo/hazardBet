@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import edu.obymas.projekt.domain.dao.UserDao;
 import edu.obymas.projekt.domain.model.User;
@@ -34,9 +35,9 @@ public class HomeController {
     }
      
     @RequestMapping(value = "/home", method = RequestMethod.POST)
-    public String login(@Validated User user, Model model) {
-    	userService.createUser(user);
-        model.addAttribute("userName", user.getUserName());
+    public String login(@RequestParam("userName") String userName,Model model) {
+    	userService.createUser(userName);
+        model.addAttribute("userName", userName);
         return "user";
     }
 	
