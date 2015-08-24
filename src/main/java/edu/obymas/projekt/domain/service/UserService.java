@@ -4,5 +4,5 @@ import edu.obymas.projekt.domain.model.User;
 
 public interface UserService {
 
-    void createUser(User u);
+    void createUser(String username);
 }

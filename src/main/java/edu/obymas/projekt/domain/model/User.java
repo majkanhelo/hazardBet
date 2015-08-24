@@ -10,22 +10,33 @@ import javax.persistence.Table;
 public class User {
 	@Id
 	@GeneratedValue
-	private long id;
-	private String userName;
+	private long Id;
+	private long Role_Id;
+	private String Login;
+	private String UserPassword;
 	
 	public long getId() {
-		return id;
+		return Id;
 	}
-
 	public void setId(long id) {
-		this.id = id;
+		Id = id;
 	}
-
-    public String getUserName() {
-        return userName;
-    }
- 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
+	public long getRole_Id() {
+		return Role_Id;
+	}
+	public void setRole_Id(long role_Id) {
+		Role_Id = role_Id;
+	}
+	public String getLogin() {
+		return Login;
+	}
+	public void setLogin(String login) {
+		Login = login;
+	}
+	public String getUserPassword() {
+		return UserPassword;
+	}
+	public void setUserPassword(String userPassword) {
+		UserPassword = userPassword;
+	}
 }
