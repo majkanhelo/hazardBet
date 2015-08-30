@@ -24,4 +24,9 @@ public class UserDaoImpl extends GenericDaoImpl<User> implements UserDao {
         }
         return null;
     }
+	
+	@Override
+	public List<User> getAllUsers() {
+    	return (List<User>)entityManager.createQuery("from User").getResultList();  	
+    }
 }

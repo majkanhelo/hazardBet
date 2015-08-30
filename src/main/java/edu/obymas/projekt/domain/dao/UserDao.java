@@ -1,5 +1,7 @@
 package edu.obymas.projekt.domain.dao;
 
+import java.util.List;
+
 import edu.obymas.projekt.domain.model.User;
 
 public interface UserDao extends GenericDao<User> {
@@ -10,4 +12,5 @@ public interface UserDao extends GenericDao<User> {
      * @return
      */
     public User loadUserByUsername(String username);
+    public List<User> getAllUsers();
 }

@@ -11,7 +11,7 @@
     <http use-expressions="true">
         <intercept-url pattern="/**" access="isAuthenticated()"/> <!-- this means all URL in this app will be checked if user is authenticated -->
         <form-login/> <!-- We will just use the built-in form login page in Spring -->
-        <logout logout-url="/logout" logout-success-url="/index"/> <!-- the logout url we will use in JSP -->
+        <logout logout-url="/logout" logout-success-url="/"/> <!-- the logout url we will use in JSP -->
     </http>
     
     <authentication-manager>
