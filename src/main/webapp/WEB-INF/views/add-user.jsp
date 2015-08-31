@@ -7,10 +7,15 @@
 <title>Login Page</title>
 </head>
 <body>
-	<a>Enter your name:</a>
+	<a>Enter user info:</a>
 	<form action="" method="post">
-		<input type="text" name="userName"><br> 
-		<input type="submit" value="Zapisz">
+		<a>Username:</a><input type="text" name="userName"><br> 
+		<a>Password:</a><input type="password" name="password"><br>
+		<a>Role</a><select name="role">
+			<option>Admin</option>
+			<option>Player</option>
+		</select><br>
+		<input type="submit" value="Save">
 	</form>
 </body>
 </html>

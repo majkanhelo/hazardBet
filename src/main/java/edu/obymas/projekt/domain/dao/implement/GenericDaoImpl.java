@@ -46,6 +46,10 @@ public abstract class GenericDaoImpl<T> implements GenericDao<T> {
 
     @Override
     public T update(final T t) {
-        return this.entityManager.merge(t);    
+    	this.entityManager.getTransaction().begin();
+        T tmp=this.entityManager.merge(t);    
+        this.entityManager.getTransaction().commit();
+        
+        return tmp;
     }
 }
