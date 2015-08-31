@@ -37,12 +37,9 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView loginPage(Locale locale, Model model) {
 		
-		List<User> users = userService.getAllUsers();
-		ModelAndView modelAndView = new ModelAndView("list-of-users");
-		modelAndView.addObject("users", users);
+		ModelAndView modelAndView = new ModelAndView("home");
 		
 		return modelAndView;
-//        return "login";
     }
     
 	@RequestMapping(value = "/user/add", method = RequestMethod.GET)
@@ -61,7 +58,7 @@ public class HomeController {
     		@RequestParam("userPassword") String userPassword, 
     		Model model) {
     	
-    	userService.createUser(userName, userPassword);
+//    	userService.createUser(userName, userPassword);
         model.addAttribute("userName", userName);
         
         return "list-of-users";
