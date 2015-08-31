@@ -1,9 +1,9 @@
 USE hazardBase;
 
 CREATE TABLE Roles (
-  Id INTEGER UNSIGNED  NOT NULL   AUTO_INCREMENT,
-  Name VARCHAR(45)  NOT NULL    ,
-PRIMARY KEY(Id));
+  rol_id INTEGER UNSIGNED  NOT NULL   AUTO_INCREMENT,
+  rol_name VARCHAR(45)  NOT NULL    ,
+PRIMARY KEY(rol_id));
 
 
 CREATE TABLE Teams (
@@ -19,14 +19,15 @@ PRIMARY KEY(Id));
 
 
 CREATE TABLE Users (
-  Id INTEGER UNSIGNED  NOT NULL   AUTO_INCREMENT,
-  Role_Id INTEGER UNSIGNED  NOT NULL  ,
-  Login VARCHAR(45)  NOT NULL  ,
-  UserPassword VARCHAR(45)  NOT NULL    ,
-PRIMARY KEY(Id)  ,
-INDEX Users_FKIndex1(Role_Id),
-  FOREIGN KEY(Role_Id)
-    REFERENCES Roles(Id)
+  usr_id INTEGER UNSIGNED  NOT NULL   AUTO_INCREMENT,
+  usr_rol_id INTEGER UNSIGNED  NOT NULL  ,
+  usr_login VARCHAR(45)  NOT NULL  ,
+  usr_password VARCHAR(45)  NOT NULL    ,
+  usr_status VARCHAR(45)  NOT NULL    ,
+PRIMARY KEY(usr_id)  ,
+INDEX Users_FKIndex1(usr_rol_id),
+  FOREIGN KEY(usr_rol_id)
+    REFERENCES Roles(rol_id)
       ON DELETE NO ACTION
       ON UPDATE NO ACTION);
       
@@ -37,7 +38,7 @@ CREATE TABLE Players (
 PRIMARY KEY(User_Id)  ,
 INDEX Players_FKIndex1(User_Id),
   FOREIGN KEY(User_Id)
-    REFERENCES Users(Id)
+    REFERENCES Users(usr_id)
       ON DELETE NO ACTION
       ON UPDATE NO ACTION);
       
@@ -110,16 +111,18 @@ ALTER TABLE Games ADD FOREIGN KEY Games_HomeTeam(HomeTeam_Id) REFERENCES Teams(I
 INSERT INTO Roles VALUES (1,'Admin');
 INSERT INTO Roles VALUES (2,'Player');
 
-INSERT INTO Teams VALUES (1,'AS Roma');
+
+INSERT INTO Teams VALUES (1,'Juventus Turyn');
 INSERT INTO Teams VALUES (2,'AC Milan');
 INSERT INTO Teams VALUES (3,'Torino');
-INSERT INTO Teams VALUES (4,'Juventus Turyn');
+INSERT INTO Teams VALUES (4,'AS Roma');
+
 
 INSERT INTO Tournaments VALUES (1,'Serie A');
 INSERT INTO Tournaments VALUES (2,'Puchar Wloch');
 
-INSERT INTO Users VALUES (1,1,'AdminMic','obymas');
-INSERT INTO Users VALUES (2,2,'PlayerMic','obymas');
+INSERT INTO Users VALUES (1,1,'AdminMic','obymas', 'ACTIVE');
+INSERT INTO Users VALUES (2,2,'PlayerMic','obymas', 'ACTIVE');
 
 INSERT INTO Players VALUES (2,200);
 
