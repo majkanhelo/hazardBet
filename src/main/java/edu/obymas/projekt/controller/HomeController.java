@@ -13,7 +13,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import edu.obymas.projekt.domain.model.Role;
 import edu.obymas.projekt.domain.model.User;
+import edu.obymas.projekt.domain.model.UserStatus;
+import edu.obymas.projekt.domain.service.RoleService;
 import edu.obymas.projekt.domain.service.UserService;
 
 /**
@@ -22,16 +25,19 @@ import edu.obymas.projekt.domain.service.UserService;
 @Controller
 public class HomeController {
 	
+	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	
 	@Autowired
 	private UserService userService;
 	
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	@Autowired
+	private RoleService roleService;
+	
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView loginPage(Locale locale, Model model) {
 		
 		List<User> users = userService.getAllUsers();
-		
 		ModelAndView modelAndView = new ModelAndView("list-of-users");
 		modelAndView.addObject("users", users);
 		
@@ -51,9 +57,11 @@ public class HomeController {
 	}
     
     @RequestMapping(value = "/user/add", method = RequestMethod.POST)
-    public String addingUser(@RequestParam("userName") String userName, Model model) {
+    public String addingUser(@RequestParam("userName") String userName, 
+    		@RequestParam("userPassword") String userPassword, 
+    		Model model) {
     	
-    	userService.createUser(userName);
+    	userService.createUser(userName, userPassword);
         model.addAttribute("userName", userName);
         
         return "list-of-users";
@@ -69,6 +77,31 @@ public class HomeController {
 		
 		return modelAndView;
 //        return "login";
+    }
+    
+    @RequestMapping(value = "/user/edit", method = RequestMethod.POST)
+    public String editingUser(@RequestParam("userName") String userName, 
+    		@RequestParam("userPassword") String userPassword,
+    		@RequestParam("roleName") String roleName,
+    		@RequestParam("userStatus") String userStatus,
+    		Model model) {
+    	
+    	User user = userService.loadUserByUsername(userName);
+    	Role role = roleService.loadRoleByRolename(roleName);
+    	
+    	user.setLogin(userName);
+    	user.setPassword(userPassword);
+    	user.setRole(role);
+    	if("ACTIVE".equals(userStatus)) {
+    		user.setStatus(UserStatus.ACTIVE);
+    	} else {
+    		user.setStatus(UserStatus.INACTIVE);
+    	}
+    	
+    	userService.updateUser(user);
+//        model.addAttribute("userName", userName);
+        
+        return "list-of-users";
     }
 	
 	

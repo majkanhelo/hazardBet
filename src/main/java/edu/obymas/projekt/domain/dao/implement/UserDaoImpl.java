@@ -16,7 +16,7 @@ public class UserDaoImpl extends GenericDaoImpl<User> implements UserDao {
 	@Override
     public User loadUserByUsername(String username) {
         Query query = this.entityManager
-                .createQuery("select u FROM User u where u.username= :username");
+                .createQuery("FROM User u where u.login= :username");
         query.setParameter("username", username);
         List<User> users = query.getResultList();
         if (users != null && users.size() == 1) {

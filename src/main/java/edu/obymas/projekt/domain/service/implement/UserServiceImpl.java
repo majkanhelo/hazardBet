@@ -23,16 +23,12 @@ public class UserServiceImpl implements UserService {
     private RoleDAO roleDAO;
 
     @Override
-    public void createUser(String userName) {
+    public void createUser(String userName, String userPassword) {
     	User user = new User();
     	Role role = roleDAO.loadRoleByRolename("Player");
     	
     	user.setLogin(userName);
-    	
-//    	user.setRole_Id(2);
-//    	user.setUserPassword("obymas");
-    	
-    	user.setPassword("obymas");
+    	user.setPassword(userPassword);
     	user.setStatus(UserStatus.ACTIVE);
     	user.setRole(role);
     	
@@ -40,15 +36,24 @@ public class UserServiceImpl implements UserService {
     }
     
     @Override
+    public User loadUserByUsername(String username) {
+    	return userDao.loadUserByUsername(username);
+    }
+    
+    @Override
 	public User getUser(Long id) {
 		User user = userDao.find(id);
 		return user;
+	}
+    
+    @Override
+	public void updateUser(User user) {
+		userDao.update(user);
 	}
 
 	@Override
 	public List<User> getAllUsers() {
 		List<User> allUsers = userDao.getAllUsers();
-		
 		return allUsers;
 	}
 

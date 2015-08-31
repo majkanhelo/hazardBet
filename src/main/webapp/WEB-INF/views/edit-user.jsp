@@ -10,7 +10,15 @@
 	
 	<h1>Edit user</h1>
  
-<%-- 	<h1>${user.Login}</h1> --%>
+	
+	<form action="" method="post">
+		Login: <input type="text" name="userName" value="${user.login}"><br> 
+		Hasło: <input type="text" name="userPassword" value="${user.password}"><br> 
+		Rola: <input type="text" name="roleName" value="${user.role.name}"><br> 
+		Status: <input type="text" name="userStatus" value="${user.status}"><br> 
+		<input type="submit" value="Zapisz">
+	</form>
+	
 	
 	<a href="${pageContext.request.contextPath}/">List of users</a>
 

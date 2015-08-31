@@ -3,7 +3,6 @@ package edu.obymas.projekt.domain.dao;
 import java.util.List;
 
 import edu.obymas.projekt.domain.model.Role;
-import edu.obymas.projekt.domain.model.User;
 
 public interface RoleDAO extends GenericDao<Role> {
 	

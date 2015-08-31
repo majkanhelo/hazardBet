@@ -10,6 +10,7 @@
 	<a>Enter your name:</a>
 	<form action="" method="post">
 		<input type="text" name="userName"><br> 
+		<input type="text" name="userPassword"><br> 
 		<input type="submit" value="Zapisz">
 	</form>
 </body>
