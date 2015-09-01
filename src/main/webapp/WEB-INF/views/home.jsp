@@ -19,6 +19,7 @@ ul#menu {
 
 <title>Home</title>
 </head>
+
 <body>
 
 	<sec:authorize access="hasRole('Admin')">

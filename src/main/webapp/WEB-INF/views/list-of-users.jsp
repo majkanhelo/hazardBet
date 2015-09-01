@@ -8,13 +8,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>List of users</title>
 </head>
+
 <body>
-
-	<h1>List of users</h1>
-	<a href="logout">Wyloguj</a><br />
-
+	<h1>List of registered users:</h1><br>  
+	
 	<c:forEach var="user" items="${users}">
-		<a href="/admin/addUser/${user.id}"> ${user.login}</a> <br>
+		<a href="/admin/editUser/${user.id}"> ${user.login}</a> <br>
 	</c:forEach>
 
 

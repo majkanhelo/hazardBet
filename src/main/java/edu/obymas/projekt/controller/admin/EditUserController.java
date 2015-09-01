@@ -29,7 +29,7 @@ public class EditUserController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(EditUserController.class);
 	
-	@RequestMapping(value = "/admin/addUser/{userId}", method = RequestMethod.GET)
+	@RequestMapping(value = "/admin/editUser/{userId}", method = RequestMethod.GET)
     public ModelAndView showLoadedForm(@PathVariable String userId,Locale locale, Model model) {
 		
 		ModelAndView modelAndView = new ModelAndView("edit-user");
@@ -45,7 +45,7 @@ public class EditUserController {
     }
 	
 	
-	@RequestMapping(value = "/admin/addUser/{userId}", method = RequestMethod.POST)
+	@RequestMapping(value = "/admin/editUser/{userId}", method = RequestMethod.POST)
     public ModelAndView onSubmit(@PathVariable String userId,@ModelAttribute("userName") String userName,@ModelAttribute("password") String  password,
     		@ModelAttribute("role") String roleName, Locale locale, Model model) {
 		
