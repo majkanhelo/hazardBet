@@ -24,8 +24,6 @@ public class User implements Serializable {
 	@Column(name = "usr_id")
 	private long id;
 	
-//	private long Role_Id;
-	
 	@Column(name = "usr_login")
 	private String login;
 	
@@ -81,16 +79,5 @@ public class User implements Serializable {
 	public void setStatus(UserStatus status) {
 		this.status = status;
 	}
-
-	
-	
-//	public long getRole_Id() {
-//		return Role_Id;
-//	}
-//	public void setRole_Id(long role_Id) {
-//		Role_Id = role_Id;
-//	}
-
-	
 
 }
