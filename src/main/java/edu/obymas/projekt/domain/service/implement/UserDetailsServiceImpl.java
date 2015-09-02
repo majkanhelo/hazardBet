@@ -22,7 +22,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
 	@Autowired
 	private UserDao userDao;
-	
+
 	@Override
 	@Transactional(readOnly = true)
 	public UserDetails loadUserByUsername(String username)

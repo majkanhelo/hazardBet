@@ -22,6 +22,7 @@ import edu.obymas.projekt.domain.service.UserService;
  * Handles requests for the application home page.
  */
 @Controller
+@RequestMapping(value = "/admin")
 public class EditUserController {
 	
 	@Autowired
@@ -33,14 +34,17 @@ public class EditUserController {
 	@Autowired
 	private RoleService roleService;
 	
+	private long editedUserId;
+	
 	private static final Logger logger = LoggerFactory.getLogger(EditUserController.class);
 	
-	@RequestMapping(value = "/admin/editUser/{userId}", method = RequestMethod.GET)
+	@RequestMapping(value = "/editUser/{userId}", method = RequestMethod.GET)
     public ModelAndView showLoadedForm(@PathVariable String userId,Locale locale, Model model) {
 		
-		ModelAndView modelAndView = new ModelAndView("edit-user");
+		ModelAndView modelAndView = new ModelAndView("admin/edit-user");
 		
-		User editedUser=userService.getUser(Long.parseLong(userId));
+		editedUserId=Long.parseLong(userId);
+		User editedUser=userService.getUser(editedUserId);
 		
 		model.addAttribute("userName", editedUser.getLogin());
 		model.addAttribute("password", editedUser.getPassword());
@@ -51,23 +55,35 @@ public class EditUserController {
     }
 	
 	
-	@RequestMapping(value = "/admin/editUser/{userId}", method = RequestMethod.POST)
+	@RequestMapping(value = "/editUser/{userId}", method = RequestMethod.POST)
     public ModelAndView onSubmit(@PathVariable String userId,@ModelAttribute("userName") String userName,@ModelAttribute("password") String  password,
     		@ModelAttribute("role") String roleName, Locale locale, Model model) {
 		
-		
-		User editedUser=userService.updateUser(userName, password, roleName, Long.parseLong(userId));
-		
-		if(editedUser.getRole().equals(roleService.loadRoleByRolename("Player")) && playerService.findPlayer(editedUser.getId())==null) {
-			playerService.createPlayer(editedUser.getId());
+		if(editedUserId!=0) {
+			User editedUser=userService.updateUser(userName, password, roleName, editedUserId);
+			
+			if(editedUser.getRole().equals(roleService.loadRoleByRolename("Player")) && playerService.findPlayer(editedUser.getId())==null) {
+				playerService.createPlayer(editedUser.getId());
+			}
+			else if(playerService.findPlayer(editedUser.getId())!=null) {
+				playerService.deletePlayer(editedUser.getId());
+			}
 		}
-		else if(playerService.findPlayer(editedUser.getId())!=null) {
-			playerService.deletePlayer(editedUser.getId());
-		}
-		
 		ModelAndView modelAndView = new ModelAndView("home");
 		
 		return modelAndView;
     }
+	
+	@RequestMapping(value = "/editUser/deleteUser", method = RequestMethod.POST)
+    public ModelAndView deleteUser(Locale locale, Model model) {
+		
+		if(editedUserId!=0) {
+			userService.deleteUser(editedUserId);
+		}
+		ModelAndView modelAndView = new ModelAndView("home");
+		
+		return modelAndView;
+    }
+	
 	
 }

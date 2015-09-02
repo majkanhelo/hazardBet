@@ -34,15 +34,15 @@ public class AddUserController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(AddUserController.class);
 	
-	@RequestMapping(value = "/admin/addUser", method = RequestMethod.GET)
+	@RequestMapping(value = "/addUser", method = RequestMethod.GET)
     public ModelAndView showNewForm(Locale locale, Model model) {
 		
-		ModelAndView modelAndView = new ModelAndView("add-user");
+		ModelAndView modelAndView = new ModelAndView("admin/add-user");
 		
 		return modelAndView;
     }
 	
-	@RequestMapping(value = "/admin/addUser", method = RequestMethod.POST)
+	@RequestMapping(value = "/addUser", method = RequestMethod.POST)
     public ModelAndView onSubmit(@ModelAttribute("userName") String userName,@ModelAttribute("password") String  password,
     		@ModelAttribute("role") String roleName, Locale locale, Model model) {
 		

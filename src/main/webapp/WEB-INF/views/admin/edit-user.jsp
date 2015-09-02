@@ -35,5 +35,10 @@
 
 		<input type="submit" value="Save">
 	</form>
+	
+	<form action="deleteUser" method="post">
+		<input type="submit" value="Delete user">
+	</form>
+	
 </body>
 </html>

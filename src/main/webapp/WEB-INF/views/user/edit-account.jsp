@@ -13,7 +13,7 @@
 	<form action="" method="post">
 		<a>Change password:</a><input type="password" name="password"
 			value=${password }><br>
-		<a>Set your account:</a><input type="number" name="password"
+		<a>Set your account:</a><input type="number" name="account"
 			value=${account }><br>
 
 		<input type="submit" value="Save">

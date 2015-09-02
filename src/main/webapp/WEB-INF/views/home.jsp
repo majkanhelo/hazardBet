@@ -30,9 +30,9 @@ ul#menu {
 		</ul>
 	</sec:authorize>
 	
-	<sec:authorize access="hasRole('User')">
+	<sec:authorize access="hasRole('Player')">
 		<ul id="menu">
-			<li><a href="/user/editAccount/2">Edit account</a></li>
+			<li><a href="/user/editAccount">Edit account</a></li>
 			<li><a href="logout">Logout</a></li>
 		</ul>
 	</sec:authorize>

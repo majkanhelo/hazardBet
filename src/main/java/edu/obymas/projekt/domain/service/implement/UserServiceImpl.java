@@ -77,5 +77,10 @@ public class UserServiceImpl implements UserService {
     	
     	return userDao.update(user);
 	}
+	
+	@Override
+	public void deleteUser(long id) {
+		userDao.delete(id);
+	}
 
 }

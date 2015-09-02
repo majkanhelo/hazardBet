@@ -19,6 +19,7 @@ import edu.obymas.projekt.domain.service.UserService;
 	 * Handles requests for the application home page.
 	 */
 	@Controller
+	@RequestMapping(value = "/admin")
 	public class UserListController {
 		
 		@Autowired
@@ -26,12 +27,12 @@ import edu.obymas.projekt.domain.service.UserService;
 		
 		private static final Logger logger = LoggerFactory.getLogger(AddUserController.class);
 		
-		@RequestMapping(value = "/admin/userList", method = RequestMethod.GET)
+		@RequestMapping(value = "/userList", method = RequestMethod.GET)
 	    public ModelAndView showForm(Locale locale, Model model) {
 			
 			List<User> allUsers=userService.getAllUsers();
 			
-			ModelAndView modelAndView = new ModelAndView("list-of-users");
+			ModelAndView modelAndView = new ModelAndView("admin/list-of-users");
 			model.addAttribute("users", allUsers);
 			
 			return modelAndView;

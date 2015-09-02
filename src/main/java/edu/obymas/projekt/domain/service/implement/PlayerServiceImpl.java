@@ -20,8 +20,10 @@ public class PlayerServiceImpl implements PlayerService {
     }
     
     @Override
-	public void updatePlayerAccount(Player player){
-    	playerDao.update(player);
+	public void updatePlayerAccount(long playerId, double account){
+    	Player tmp=playerDao.find(playerId);
+    	tmp.setAccount(account);
+    	playerDao.update(tmp);
     }
     
     @Override
