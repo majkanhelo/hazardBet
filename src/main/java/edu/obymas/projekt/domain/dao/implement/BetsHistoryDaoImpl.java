@@ -16,7 +16,7 @@ import edu.obymas.projekt.domain.model.User;
 @Component("betsHistoryDao")
 public class BetsHistoryDaoImpl extends GenericDaoImpl<Player>{
 	
-	public List<BetsHistory> getPlayerBetsHistory() {
+	public List<BetsHistory> getPlayerBetsHistory(long userId) {
 		  Query query = this.entityManager.createNativeQuery("Select t.Name, g.Result, c.Bet_Choose, g.PlayDate, "
           		+" h.Name as home, o.Name as guest, c.BetCash, b.DrawLoad, b.HomeLoad, b.GuestLoad, g.Winner "
 				+"from Coupons as c "
@@ -25,7 +25,9 @@ public class BetsHistoryDaoImpl extends GenericDaoImpl<Player>{
           		+"join Tournaments as t on g.Tournament_Id=t.Id "
           		+"join Teams as h on h.Id=g.HomeTeam_Id "
           		+"join Teams as o on o.Id=g.GuestTeam_Id "
-          		+"where c.Player_User_Id=2 and b.Resolved=true");
+          		+"where c.Player_User_Id=:userId and b.Resolved=true");
+		  
+		  query.setParameter("userId", userId);
 		  
 		  List<Object[]> results = query.getResultList();
 	      
