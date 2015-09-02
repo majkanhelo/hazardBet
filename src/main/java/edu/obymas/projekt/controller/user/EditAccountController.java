@@ -5,6 +5,7 @@ import java.util.Locale;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -33,6 +34,18 @@ public class EditAccountController {
 		
 		model.addAttribute("password", editedUser.getPassword());
 		model.addAttribute("account",playerAccount);
+		
+		return modelAndView;
+    }
+	
+	@RequestMapping(value = "/user/editAccount/{userId}", method = RequestMethod.POST)
+    public ModelAndView onSubmit(@PathVariable String userId,@ModelAttribute("password") String password,
+    		@ModelAttribute("account") double account, Locale locale, Model model) {
+		
+		ModelAndView modelAndView = new ModelAndView("home");
+		
+		userService.getUser(Long.parseLong(userId));
+		
 		
 		return modelAndView;
     }

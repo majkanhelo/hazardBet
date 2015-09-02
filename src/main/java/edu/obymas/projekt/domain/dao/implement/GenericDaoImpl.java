@@ -1,11 +1,9 @@
-package edu.obymas.projekt.domain.dao.implement;
+ package edu.obymas.projekt.domain.dao.implement;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
