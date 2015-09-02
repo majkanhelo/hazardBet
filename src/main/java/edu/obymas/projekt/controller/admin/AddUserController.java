@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import edu.obymas.projekt.domain.model.User;
+import edu.obymas.projekt.domain.service.PlayerService;
+import edu.obymas.projekt.domain.service.RoleService;
 import edu.obymas.projekt.domain.service.UserService;
 
 /**
@@ -26,6 +28,12 @@ public class AddUserController {
 	
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private PlayerService playerService;
+	
+	@Autowired
+	private RoleService roleService;
 	
 	private static final Logger logger = LoggerFactory.getLogger(AddUserController.class);
 	
@@ -41,7 +49,11 @@ public class AddUserController {
     public ModelAndView onSubmit(@ModelAttribute("userName") String userName,@ModelAttribute("password") String  password,
     		@ModelAttribute("role") String roleName, Locale locale, Model model) {
 		
-		userService.createUser(userName, password, roleName);
+		User addedUser=userService.createUser(userName, password, roleName);
+		
+		if(addedUser.getRole().equals(roleService.loadRoleByRolename("Player"))) {
+			playerService.createPlayer(addedUser.getId());
+		}
 		
 		ModelAndView modelAndView = new ModelAndView("home");
 		

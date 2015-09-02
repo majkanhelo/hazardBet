@@ -23,7 +23,7 @@ public class UserServiceImpl implements UserService {
     private RoleDAO roleDAO;
 
     @Override
-    public void createUser(String userName, String password, String roleName) {
+    public User createUser(String userName, String password, String roleName) {
 
     	User user = new User();
     	Role role = roleDAO.loadRoleByRolename(roleName);
@@ -33,7 +33,7 @@ public class UserServiceImpl implements UserService {
     	user.setStatus(UserStatus.ACTIVE);
     	user.setRole(role);
     	
-    	userDao.create(user);
+    	return userDao.create(user);
     }
     
     @Override
@@ -48,8 +48,8 @@ public class UserServiceImpl implements UserService {
 	}
     
     @Override
-	public void updateUser(User user) {
-		userDao.update(user);
+	public User updateUser(User user) {
+		return userDao.update(user);
 	}
 
 	@Override
@@ -64,7 +64,7 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	@Override
-	public void updateUser(String username, String password, String roleName,Long id){
+	public User updateUser(String username, String password, String roleName,Long id){
 		
 		User user=this.getUser(id);
 		Role role = roleDAO.loadRoleByRolename(roleName);
@@ -75,7 +75,7 @@ public class UserServiceImpl implements UserService {
     	user.setStatus(UserStatus.ACTIVE);
     	user.setRole(role);
     	
-    	userDao.update(user);
+    	return userDao.update(user);
 	}
 
 }

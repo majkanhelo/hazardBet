@@ -26,7 +26,14 @@ ul#menu {
 		<ul id="menu">
 			<li><a href="/admin/addUser">Add user</a></li>
 			<li><a href="/admin/userList">Edit user</a></li>
-			<li><a href="logout">Wyloguj</a></li>
+			<li><a href="logout">Logout</a></li>
+		</ul>
+	</sec:authorize>
+	
+	<sec:authorize access="hasRole('User')">
+		<ul id="menu">
+			<li><a href="/user/editAccount/2">Edit account</a></li>
+			<li><a href="logout">Logout</a></li>
 		</ul>
 	</sec:authorize>
 

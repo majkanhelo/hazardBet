@@ -24,7 +24,6 @@ public class User implements Serializable {
 	@Column(name = "usr_id")
 	private long id;
 	
-//	private long Role_Id;
 	
 	@Column(name = "usr_login")
 	private String login;

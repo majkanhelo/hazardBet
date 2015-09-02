@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import edu.obymas.projekt.domain.model.User;
+import edu.obymas.projekt.domain.service.PlayerService;
+import edu.obymas.projekt.domain.service.RoleService;
 import edu.obymas.projekt.domain.service.UserService;
 
 /**
@@ -26,6 +28,12 @@ public class EditUserController {
 	
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private PlayerService playerService;
+	
+	@Autowired
+	private RoleService roleService;
 	
 	private static final Logger logger = LoggerFactory.getLogger(EditUserController.class);
 	
@@ -50,8 +58,14 @@ public class EditUserController {
     		@ModelAttribute("role") String roleName, Locale locale, Model model) {
 		
 		
-		userService.updateUser(userName, password, roleName, Long.parseLong(userId));
+		User editedUser=userService.updateUser(userName, password, roleName, Long.parseLong(userId));
 		
+		if(editedUser.getRole().equals(roleService.loadRoleByRolename("Player")) && playerService.findPlayer(editedUser.getId())==null) {
+			playerService.createPlayer(editedUser.getId());
+		}
+		else if(playerService.findPlayer(editedUser.getId())!=null) {
+			playerService.deletePlayer(editedUser.getId());
+		}
 		
 		ModelAndView modelAndView = new ModelAndView("home");
 		
