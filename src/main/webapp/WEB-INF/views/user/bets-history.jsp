@@ -21,7 +21,7 @@ th, td {
 </head>
 
 <body>
-	<h1>List of registered users:</h1>
+	<h1>Your bets History:</h1>
 	<br>
 
 	<table style="width: 100%">

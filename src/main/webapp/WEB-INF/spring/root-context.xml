@@ -4,6 +4,11 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<!-- Root Context: defines shared resources visible to all other web components -->
+	
+	<!-- To prevent browser's back button on displaying secured resource after logout -->
+	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+	    <property name="cacheSeconds" value="0" />
+	</bean>
 
 	<bean id="entityManagerFactory"
 		class="javax.persistence.Persistence" factory-method="createEntityManagerFactory" destroy-method="close">
