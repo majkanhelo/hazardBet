@@ -19,7 +19,7 @@
             <!-- Normally, in this part, you will declare the source of your users
                  But for simplicity, we will hard-code the users. This is very useful while testing setup -->
             <user-service>
-                <user name="admin" password="admin" authorities="Admin, User"/>
+                <user name="admin" password="admin" authorities="Admin"/>
                 <user name="user" password="user" authorities="User"/>
             </user-service>
         </authentication-provider>
