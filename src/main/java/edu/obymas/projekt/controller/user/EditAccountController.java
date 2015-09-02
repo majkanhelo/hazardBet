@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import edu.obymas.projekt.domain.dao.UserDao;
-import edu.obymas.projekt.domain.model.LoggedUser;
 import edu.obymas.projekt.domain.model.User;
 import edu.obymas.projekt.domain.service.PlayerService;
 import edu.obymas.projekt.domain.service.UserService;

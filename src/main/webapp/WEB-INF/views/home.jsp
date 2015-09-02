@@ -33,6 +33,7 @@ ul#menu {
 	<sec:authorize access="hasRole('Player')">
 		<ul id="menu">
 			<li><a href="/user/editAccount">Edit account</a></li>
+			<li><a href="/user/betsHistory">Bets history</a></li>
 			<li><a href="logout">Logout</a></li>
 		</ul>
 	</sec:authorize>

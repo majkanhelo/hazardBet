@@ -34,7 +34,7 @@ INDEX Users_FKIndex1(usr_rol_id),
 
 CREATE TABLE Players (
   User_Id INTEGER UNSIGNED  NOT NULL  ,
-  Account FLOAT ZEROFILL  NOT NULL    ,
+  Account DOUBLE ZEROFILL  NOT NULL    ,
 PRIMARY KEY(User_Id)  ,
 INDEX Players_FKIndex1(User_Id),
   FOREIGN KEY(User_Id)
@@ -66,6 +66,7 @@ CREATE TABLE Games (
   GuestTeam_Id INTEGER UNSIGNED  NOT NULL  ,
   PlayDate DATE  NOT NULL  ,
   Result VARCHAR(45)  NULL    ,
+  Winner INTEGER NULL,
 PRIMARY KEY(Id)  ,
 INDEX Games_FKIndex2(Tournament_Id),
   FOREIGN KEY(Tournament_Id)
@@ -76,9 +77,9 @@ INDEX Games_FKIndex2(Tournament_Id),
 
 CREATE TABLE Bets (
   Game_Id INTEGER UNSIGNED  NOT NULL  ,
-  HomeLoad FLOAT  NOT NULL  ,
-  GuestLoad FLOAT  NOT NULL  ,
-  DrawLoad FLOAT  NOT NULL  ,
+  HomeLoad DOUBLE  NOT NULL  ,
+  GuestLoad DOUBLE  NOT NULL  ,
+  DrawLoad DOUBLE  NOT NULL  ,
   Resolved BOOL  NOT NULL    ,
 PRIMARY KEY(Game_Id)  ,
 INDEX Bet_FKIndex1(Game_Id),
@@ -91,7 +92,8 @@ CREATE TABLE Coupons (
   Id INTEGER UNSIGNED  NOT NULL   AUTO_INCREMENT,
   Bet_Game_Id INTEGER UNSIGNED  NOT NULL  ,
   Player_User_Id INTEGER UNSIGNED  NOT NULL  ,
-  BetCash FLOAT  NOT NULL    ,
+  Bet_Choose INTEGER UNSIGNED  NOT NULL ,
+  BetCash DOUBLE  NOT NULL    ,
 PRIMARY KEY(Id)  ,
 INDEX Coupon_FKIndex1(Player_User_Id)  ,
 INDEX Coupon_FKIndex2(Bet_Game_Id),
@@ -134,11 +136,11 @@ INSERT INTO Tournaments_has_Teams VALUES (1,4);
 INSERT INTO Tournaments_has_Teams VALUES (2,1);
 INSERT INTO Tournaments_has_Teams VALUES (2,4);
 
-INSERT INTO Games VALUES (1,1,1,2,'2015-01-01',null);
-INSERT INTO Games VALUES (2,1,3,4,'2015-03-12',null);
-INSERT INTO Games VALUES (3,2,4,1,'2015-06-25',null);
+INSERT INTO Games VALUES (1,1,1,2,'2015-01-01',null,null);
+INSERT INTO Games VALUES (2,1,3,4,'2015-03-12',null,null);
+INSERT INTO Games VALUES (3,2,4,1,'2015-06-25',"3:1",1);
 
 INSERT INTO Bets VALUES (1, 3.50,3.50,3.50,false);
-INSERT INTO Bets VALUES (3, 3.50,3.50,3.50,false);
+INSERT INTO Bets VALUES (3, 3.50,3.50,3.50,true);
 
-INSERT INTO Coupons VALUES (1, 3 , 2, 10);
+INSERT INTO Coupons VALUES (1, 3 , 2, 1, 10);
