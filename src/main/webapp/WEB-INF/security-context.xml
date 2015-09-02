@@ -19,17 +19,13 @@
 	<!-- Enabling Spring beans auto-discovery -->
     <context:component-scan base-package="edu.obymas.projekt" />
     
+    <http pattern="/login" security="none"></http>
+    
     <http use-expressions="true">
         <intercept-url pattern="/**" access="isAuthenticated()"/> <!-- this means all URL in this app will be checked if user is authenticated -->
-        <form-login/> <!-- We will just use the built-in form login page in Spring -->
+        <form-login login-page="/login" default-target-url="/" authentication-failure-url="/login" /> 
         <logout logout-url="/logout" logout-success-url="/"/> <!-- the logout url we will use in JSP -->
     </http>
-    
-<!--     <http> -->
-<!--         <form-login login-page="/login/" -->
-<!--             authentication-failure-url="/fail/" /> -->
-<!--         <logout logout-success-url="/" /> -->
-<!--     </http> -->
  
 
 	<beans:bean id="daoAuthenticationProvider" class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
