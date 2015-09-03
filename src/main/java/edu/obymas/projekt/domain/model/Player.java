@@ -19,8 +19,19 @@ public class Player {
 		return id;
 	}
 
+	public Player() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public void setId(long id) {
 		this.id = id;
+	}
+
+	public Player(long id, double account) {
+		super();
+		this.id = id;
+		this.account = account;
 	}
 
 	@Column(name = "Account")

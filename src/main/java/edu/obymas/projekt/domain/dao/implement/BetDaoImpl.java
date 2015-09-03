@@ -12,4 +12,10 @@ public class BetDaoImpl extends GenericDaoImpl<Bet>{
 		Bet bet=new Bet(idGame,h,g,d,false);
 		this.create(bet);
 	}
+	
+	public void updateBet(long idGame) {
+		Bet bet=this.find(idGame);
+		bet.setResolved(true);
+		this.update(bet);
+	}
 }

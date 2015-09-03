@@ -29,6 +29,7 @@ ul#menu {
 			<li><a href="/admin/addTeam">Add team</a></li>
 			<li><a href="/admin/tournaments">Manage tournaments</a></li>
 			<li><a href="/admin/game/">Add game</a></li>
+			<li><a href="/admin/resolveGame">Resolve game</a></li>
 			<li><a href="logout">Logout</a></li>
 		</ul>
 	</sec:authorize>
