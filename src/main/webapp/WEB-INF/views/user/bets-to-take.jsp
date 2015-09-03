@@ -49,6 +49,7 @@ th, td {
 		</c:forEach>
 	</table>
 
+	<a href="/"><input type="submit" value="Back Home" /></a>
 
 
 
