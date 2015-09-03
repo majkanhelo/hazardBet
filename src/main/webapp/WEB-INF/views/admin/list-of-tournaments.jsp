@@ -13,7 +13,7 @@
 	<h1>List of registered tournaments:</h1><br>  
 	
 	<c:forEach var="tournament" items="${tournaments}">
-		<a href="/admin/tournament/${tournament.id} }"> ${tournament.name}</a> <br>
+		<a href="/admin/tournament/${tournament.id}"> ${tournament.name}</a> <br>
 	</c:forEach>
 
 	<br>

@@ -17,11 +17,11 @@ public class BetsToTakeDaoImpl extends GenericDaoImpl<Player>{
 	public List<BetToTake> getBetsToTake() {
 		  Query query = this.entityManager.createNativeQuery("Select t.Name as Tournament, g.PlayDate, "
 				  +"h.Name as Home, o.Name as Geust, b.DrawLoad, b.HomeLoad, b.GuestLoad, b.Game_Id "
-				  +"from hazardBase4.Bets as b " 
-				  +"join hazardBase4.Games as g on g.Id=b.Game_Id "
-				  +"join hazardBase4.Tournaments as t on g.Tournament_Id=t.Id "
-				  +"join hazardBase4.Teams as h on h.Id=g.HomeTeam_Id "
-				  +"join hazardBase4.Teams as o on o.Id=g.GuestTeam_Id "
+				  +"from Bets as b " 
+				  +"join Games as g on g.Id=b.Game_Id "
+				  +"join Tournaments as t on g.Tournament_Id=t.Id "
+				  +"join Teams as h on h.Id=g.HomeTeam_Id "
+				  +"join Teams as o on o.Id=g.GuestTeam_Id "
 				  +"where b.Resolved=false");
 		  
 		  List<Object[]> results = query.getResultList();

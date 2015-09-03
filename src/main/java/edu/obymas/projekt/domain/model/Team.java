@@ -14,6 +14,20 @@ import javax.persistence.Table;
 @Table(name = "Teams")
 public class Team {
 	
+	public Team(long id, String name) {
+		super();
+		this.id = id;
+		this.name = name;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
 	public Team() {
 		super();
 	}
@@ -21,16 +35,16 @@ public class Team {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name = "Id")
-	private long Id;
+	private long id;
 	
     @Column(name="Name")
-	private String Name;
+	private String name;
 
 	public String getName() {
-		return Name;
+		return name;
 	}
 
 	public void setName(String name) {
-		Name = name;
+		this.name = name;
 	}
 }
