@@ -26,6 +26,7 @@ ul#menu {
 		<ul id="menu">
 			<li><a href="/admin/addUser">Add user</a></li>
 			<li><a href="/admin/userList">Edit user</a></li>
+			<li><a href="/admin/addTeam">Add team</a></li>
 			<li><a href="logout">Logout</a></li>
 		</ul>
 	</sec:authorize>
