@@ -17,11 +17,11 @@ th, td {
 </style>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Your bets History</title>
+<title>Your current bets</title>
 </head>
 
 <body>
-	<h1>Available bets:</h1>
+	<h1>Your current bets:</h1>
 	<br>
 
 	<table style="width: 100%">
@@ -29,13 +29,14 @@ th, td {
 			<th>Tournament</th>
 			<th>Home</th>
 			<th>Guest</th>
-			<th>HomeLoad</th>
-			<th>GuestLoad</th>
-			<th>DrawLoad</th>
-			<th>Term</th>
-			<th></th>
+			<th>Home Load</th>
+			<th>Guest Load</th>
+			<th>Draw Load</th>
+			<th>Your Choice</th>
+			<th>Invested many</th>
+		
 		</tr>
-		<c:forEach var="bet" items="${betsToTake}">
+		<c:forEach var="bet" items="${currentBets}">
 			<tr>
 				<td>${bet.tournament }</td>
 				<td>${bet.hostTeam }</td>
@@ -43,8 +44,18 @@ th, td {
 				<td>${bet.homeLoad }</td>
 				<td>${bet.guestLoad }</td>
 				<td>${bet.drawLoad }</td>
-				<td>${bet.gameDate }</td>
-				<td><a href="/user/betsToTake/${bet.gameId }">Take bet</a></td>
+				<c:choose>
+					<c:when test="${bet.choice == 1}">
+       					<td>Home win</td>
+    				</c:when>
+					<c:when test="${bet.choice == 2}">
+        				<td>Guest win</td>
+   	 				</c:when>
+					<c:otherwise>
+        				<td>Draw</td>
+    				</c:otherwise>
+				</c:choose>
+				<td>${bet.betCash}</td>
 			</tr>
 		</c:forEach>
 	</table>

@@ -35,6 +35,7 @@ ul#menu {
 			<li><a href="/user/editAccount">Edit account</a></li>
 			<li><a href="/user/betsHistory">Bets history</a></li>
 			<li><a href="/user/betsToTake">Take bet</a></li>
+			<li><a href="/user/currentBets">Current bets</a></li>
 			<li><a href="logout">Logout</a></li>
 		</ul>
 	</sec:authorize>
