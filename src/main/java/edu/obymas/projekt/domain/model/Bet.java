@@ -63,5 +63,18 @@ public class Bet {
 
 	public void setResolved(boolean resolved) {
 		Resolved = resolved;
+	}
+
+	public Bet(long game_Id, double homeLoad, double guestLoad, double drawLoad, boolean resolved) {
+		super();
+		Game_Id = game_Id;
+		HomeLoad = homeLoad;
+		GuestLoad = guestLoad;
+		DrawLoad = drawLoad;
+		Resolved = resolved;
+	}
+
+	public Bet() {
+		super();
 	} 
 }

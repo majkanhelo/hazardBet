@@ -26,6 +26,9 @@ ul#menu {
 		<ul id="menu">
 			<li><a href="/admin/addUser">Add user</a></li>
 			<li><a href="/admin/userList">Edit user</a></li>
+			<li><a href="/admin/addTeam">Add team</a></li>
+			<li><a href="/admin/tournaments">Manage tournaments</a></li>
+			<li><a href="/admin/game/">Add game</a></li>
 			<li><a href="logout">Logout</a></li>
 		</ul>
 	</sec:authorize>
@@ -34,6 +37,8 @@ ul#menu {
 		<ul id="menu">
 			<li><a href="/user/editAccount">Edit account</a></li>
 			<li><a href="/user/betsHistory">Bets history</a></li>
+			<li><a href="/user/betsToTake">Take bet</a></li>
+			<li><a href="/user/currentBets">Current bets</a></li>
 			<li><a href="logout">Logout</a></li>
 		</ul>
 	</sec:authorize>

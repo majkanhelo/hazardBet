@@ -12,33 +12,31 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import edu.obymas.projekt.domain.dao.implement.BetsHistoryDaoImpl;
-import edu.obymas.projekt.domain.model.BetsHistory;
+import edu.obymas.projekt.domain.dao.implement.CurrentBetsDaoImpl;
+import edu.obymas.projekt.domain.model.CurrentBet;
 import edu.obymas.projekt.domain.model.User;
 import edu.obymas.projekt.domain.service.UserService;
 
 @Controller
 @RequestMapping(value = "/user")
-public class BetsHistoryController {
-	
+public class CurrentBetsController {
 	@Autowired
-	private BetsHistoryDaoImpl betsHistoryDao;
+	private CurrentBetsDaoImpl currentBetsDao;
 	
 	@Autowired
 	private UserService userService;
 	
-	@RequestMapping(value = "/betsHistory", method = RequestMethod.GET)
+	@RequestMapping(value = "/currentBets", method = RequestMethod.GET)
     public ModelAndView showBetsHistory(Locale locale, Model model) {
-		ModelAndView modelAndView = new ModelAndView("user/bets-history");		
+		ModelAndView modelAndView = new ModelAndView("user/current-bets");		
 		
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 	    String username = auth.getName();
 	    User user=userService.loadUserByUsername(username);
 	    
-		List<BetsHistory> betsHistory= betsHistoryDao.getPlayerBetsHistory(user.getId());
-		model.addAttribute("betsHistory",betsHistory);
+		List<CurrentBet> currentBets= currentBetsDao.getPlayerCurrentBets(user.getId());
+		model.addAttribute("currentBets",currentBets);
 
 		return modelAndView;
 	}
-
 }
