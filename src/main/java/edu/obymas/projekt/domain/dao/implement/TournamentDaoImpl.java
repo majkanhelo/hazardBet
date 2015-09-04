@@ -31,9 +31,9 @@ public class TournamentDaoImpl extends GenericDaoImpl<Tournament>{
 	
 	public List<Team> getAllTeamInTournament(long tournamentId) {
 		  Query query = this.entityManager.createNativeQuery("Select t.Name, t.Id from "
-				  +"hazardBase4.Tournaments as r "
-				  +"join hazardBase4.Tournaments_has_Teams as rt on r.Id=rt.Tournament_Id "
-				  +"join hazardBase4.Teams as t on t.Id=rt.Team_Id "
+				  +"Tournaments as r "
+				  +"join Tournaments_has_Teams as rt on r.Id=rt.Tournament_Id "
+				  +"join Teams as t on t.Id=rt.Team_Id "
 				  +"where r.Id=:tournamentId");
 		  
 		  query.setParameter("tournamentId", tournamentId);
@@ -51,9 +51,9 @@ public class TournamentDaoImpl extends GenericDaoImpl<Tournament>{
 	}
 	
 	public List<Team> getAllTeamNotInTournament(long tournamentId) {
-		  Query query = this.entityManager.createNativeQuery("select * from hazardBase4.Teams as t where not exists ( "
+		  Query query = this.entityManager.createNativeQuery("select * from Teams as t where not exists ( "
 				  +"Select * from "
-				  +"hazardBase4.Tournaments_has_Teams as rt where "
+				  +"Tournaments_has_Teams as rt where "
 				  +"rt.Team_Id=t.Id and rt.Tournament_Id=:tournamentId )");
 		  
 		  query.setParameter("tournamentId", tournamentId);

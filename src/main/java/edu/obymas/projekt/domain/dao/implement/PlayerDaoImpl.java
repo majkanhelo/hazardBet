@@ -19,7 +19,7 @@ public class PlayerDaoImpl extends GenericDaoImpl<Player> implements PlayerDao {
 	public void updateAccount(long id, double change) {
 		Player player=this.find(id);
 		double account=player.getAccount();
-		player.setAccount(account-change);
+		player.setAccount(account+change);
 		this.update(player);
 	}
 }
