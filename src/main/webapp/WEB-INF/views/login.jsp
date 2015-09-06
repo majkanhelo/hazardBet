@@ -1,21 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="sec"
-	uri="http://www.springframework.org/security/tags"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
 <!DOCTYPE html>
 <html>
 <head>
 
 <style>
-ul#menu li {
-	display: inline;
-	margin: 10px;
-}
-
-ul#menu {
-	text-align: center;
-}
 
 html,
 body {
@@ -243,12 +234,10 @@ body {
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
 
-
 <title>Login page</title>
 </head>
 
 <body>
-
 
 	<!-- Header -->
 	<div class="navbar navbar-fixed-top navbar-bold" data-spy="affix" data-offset-top="1000">
@@ -263,11 +252,6 @@ body {
     		</div>
    		</div>
 	</div>
-
-<!-- 	<div>&nbsp;</div>
-	<div>&nbsp;</div>
-	<div>&nbsp;</div>
-	<div>&nbsp;</div> -->
 
 	<!-- Login form -->
     <div class="row">
