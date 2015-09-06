@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import edu.obymas.projekt.domain.dao.PlayerDao;
 import edu.obymas.projekt.domain.dao.RoleDAO;
 import edu.obymas.projekt.domain.dao.UserDao;
 import edu.obymas.projekt.domain.model.Role;
@@ -21,6 +22,9 @@ public class UserServiceImpl implements UserService {
     
     @Autowired
     private RoleDAO roleDAO;
+    
+    @Autowired
+    private PlayerDao playerDao;
 
     @Override
     public User createUser(String userName, String password, String roleName) {
@@ -80,6 +84,7 @@ public class UserServiceImpl implements UserService {
 	
 	@Override
 	public void deleteUser(long id) {
+		playerDao.delete(id);
 		userDao.delete(id);
 	}
 
