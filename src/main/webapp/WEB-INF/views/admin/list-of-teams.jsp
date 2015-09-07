@@ -311,6 +311,14 @@ body {
 			</a>	
 		</div>
 	</div>
+	
+	<div class="row" style="margin-top:20px;">
+		<div class="col-sm-4 col-sm-offset-4">
+			<form action="/" method="get">
+				<input type="submit" class="btn btn-default btn-lg" value="Go back">
+			</form>
+		</div>
+	</div>
 
 
 </body>

@@ -259,7 +259,7 @@ body {
         <label for="inputLogin" class="sr-only">Login</label>
      	<input type="text" name="userName" id="inputLogin" class="form-control" placeholder="Login" required autofocus />	
         <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" name="j_password" id="inputPassword" class="form-control" placeholder="Password" required/>
+        <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required/>
         <label for="role" class="sr-only">Role</label>
         <select name="role" class="form-control" id="role">
 			<option>Admin</option>
@@ -272,6 +272,16 @@ body {
         	</div>
         </div>
      </form>
+     
+     <div class="row" style="margin-top: 20px;">
+		<div class="col-sm-10 col-sm-offset-2">
+			<div class="col-sm-2 col-sm-offset-2">
+				<form action="/" method="get">
+					<input type="submit" class="btn btn-default btn-lg" value="Go back">
+				</form>
+			</div>
+		</div>
+	</div>
 
 </body>
 </html>

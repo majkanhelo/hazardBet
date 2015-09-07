@@ -84,7 +84,9 @@ public class UserServiceImpl implements UserService {
 	
 	@Override
 	public void deleteUser(long id) {
-		playerDao.delete(id);
+		if(playerDao.find(id)!=null){
+			playerDao.delete(id);
+		}
 		userDao.delete(id);
 	}
 

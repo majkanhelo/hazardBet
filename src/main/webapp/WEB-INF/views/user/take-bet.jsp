@@ -279,6 +279,12 @@ body {
         </div>
     </form>
 
-
+	<div class="row" style="margin-top: 20px; margin-left:40px;">
+		<div class="col-sm-4 col-sm-offset-4">
+			<form action="/" method="get">
+				<input type="submit" class="btn btn-default btn-lg" value="Go back">
+			</form>
+		</div>
+	</div>
 </body>
 </html>
