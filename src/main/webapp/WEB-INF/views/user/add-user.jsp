@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
@@ -218,8 +217,6 @@ body {
 }
 /*----------------------------------------------------------------------------------------------------------*/
 
-
-
 </style>
 
 <!-- Bootstrap -->
@@ -235,7 +232,7 @@ body {
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
 
-<title>Add team</title>
+<title>Add user</title>
 </head>
 
 <body>
@@ -257,15 +254,13 @@ body {
    		</div>
 	</div>
 
-	<div class="row">
-		<div class="col-sm-4 col-sm-offset-4">
-			<h1>Register new team:</h1>
-		</div>
-	</div>
 
 	<form class="form-signin" action="" method="POST">
-        <label for="teamName" class="sr-only">Team name</label>
-     	<input type="text" name="teamName" id="teamName" class="form-control" placeholder="Name of team	" required autofocus />	
+        <label for="inputLogin" class="sr-only">Login</label>
+     	<input type="text" name="userName" id="inputLogin" class="form-control" placeholder="Login" required autofocus />	
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required/>
+        
         <hr>
 		<div class="row">
         	<div class="col-sm-6">
@@ -276,7 +271,7 @@ body {
      
      <div class="row" style="margin-top: 20px;">
 		<div class="col-sm-10 col-sm-offset-2">
-			<div class="col-sm-2 col-sm-offset-3">
+			<div class="col-sm-2 col-sm-offset-2">
 				<form action="/" method="get">
 					<input type="submit" class="btn btn-default btn-lg" value="Go back">
 				</form>

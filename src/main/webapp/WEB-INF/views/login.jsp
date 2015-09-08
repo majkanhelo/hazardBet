@@ -271,7 +271,7 @@ body {
         						<input type="submit" class="btn btn-default btn-lg" value="Login" />        				
         					</div>
         					<div class="col-sm-6">
-        						<a href="#" class="btn btn-default btn-lg">Register</a>	
+        						<a href="/user/register" class="btn btn-default btn-lg">Register</a>	
         					</div>
         				</div>
      				</form>

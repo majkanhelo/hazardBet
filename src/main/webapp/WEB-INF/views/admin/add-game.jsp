@@ -324,7 +324,7 @@ function myFunction() {
 						Home load:
 					</div>
 					<div class="col-sm-6">
-     					<input type="number" step=0.01  name="homeLoad" id="inputDate" class="form-control" placeholder="Home load" />	
+     					<input type="number" step=0.01  name="homeLoad" id="inputDate" class="form-control" placeholder="Home load" min="0"/>	
 					</div>
 				</div>
 				<div class="row">
@@ -332,7 +332,7 @@ function myFunction() {
 						Guest load
 					</div>
 					<div class="col-sm-6">
-     					<input type="number" step=0.01  name="guestLoad" id="inputDate" class="form-control" placeholder="Guest load" />	
+     					<input type="number" step=0.01  name="guestLoad" id="inputDate" class="form-control" placeholder="Guest load" min="0" />	
 					</div>
 				</div>
 				<div class="row">
@@ -340,17 +340,12 @@ function myFunction() {
 						Draw load
 					</div>
 					<div class="col-sm-6">
-     					<input type="number" step=0.01  name="drawLoad" id="inputDate" class="form-control" placeholder="Draw load" />	
+     					<input type="number" step=0.01  name="drawLoad" id="inputDate" class="form-control" placeholder="Draw load" min="0"/>	
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-sm-6">
 						<input type="submit" value="Save" class="btn btn-default btn-lg">
-					</div>
-					<div class="col-sm-6">
-     					<a href="/admin/game/">
-							<input type="submit" value="Go Back" class="btn btn-default btn-lg" />
-						</a>
 					</div>
 				</div>
 			</form>
