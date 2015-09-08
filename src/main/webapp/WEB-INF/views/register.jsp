@@ -217,8 +217,6 @@ body {
 }
 /*----------------------------------------------------------------------------------------------------------*/
 
-
-
 </style>
 
 <!-- Bootstrap -->
@@ -234,7 +232,7 @@ body {
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
 
-<title>Login page</title>
+<title>Add user</title>
 </head>
 
 <body>
@@ -243,50 +241,43 @@ body {
 	<div class="navbar navbar-fixed-top navbar-bold" data-spy="affix" data-offset-top="1000">
   		<div class="container">
     		<div class="navbar-header">
-      			<a href="/login" class="navbar-brand">Home</a>
+      			<a href="/" class="navbar-brand">Home</a>
     		</div>
     		<div class="navbar-collapse collapse" id="navbar">
 	      		<ul class="nav navbar-nav">
         			<li><a href="#sec1">About</a></li>        		
       			</ul>
-    		</div>        
-   		</div>     
+            <ul class="nav navbar-nav">
+              <li><a href="logout">Logout</a></li>            
+            </ul>
+    		</div>
+   		</div>
 	</div>
 
-	<!-- Login form -->
-    <div class="row">
-    	<div class="col-sm-4 col-sm-offset-4">
-         	<div class="panel panel-default">
-         		<div class="panel-heading text-center"><h2><i class="icon-chevron-left"></i>Sign in or Register</h2></div>
-         		<div class="panel-body text-center">
 
-         			<form class="form-signin" action="j_spring_security_check" method="POST">
-        				<label for="inputLogin" class="sr-only">Login</label>
-        				<input type="text" name="j_username" id="inputLogin" class="form-control" placeholder="Login" required autofocus />	
-        				<label for="inputPassword" class="sr-only">Password</label>
-        				<input type="password" name="j_password" id="inputPassword" class="form-control" placeholder="Password" required/>
-        				<hr>
-				        <div class="row">
-        					<div class="col-sm-6">
-        						<input type="submit" class="btn btn-default btn-lg" value="Login" />        				
-        					</div>
-        					<div class="col-sm-6">
-        						<a href="/register" class="btn btn-default btn-lg">Register</a>	
-        					</div>
-        				</div>
-     				</form>
-
-        			<div class="row">
-						<font color="red">
-							<span>${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}</span>							
-						</font>
-					</div>
-
-          		</div>
-         	</div>
- 		</div>
-  	</div>
-
+	<form class="form-signin" action="" method="POST">
+        <label for="inputLogin" class="sr-only">Login</label>
+     	<input type="text" name="userName" id="inputLogin" class="form-control" placeholder="Login" required autofocus />	
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required/>
+        
+        <hr>
+		<div class="row">
+        	<div class="col-sm-6">
+        		<input type="submit" class="btn btn-default btn-lg" value="Save" />        				
+        	</div>
+        </div>
+     </form>
+     
+     <div class="row" style="margin-top: 20px;">
+		<div class="col-sm-10 col-sm-offset-2">
+			<div class="col-sm-2 col-sm-offset-2">
+				<form action="/" method="get">
+					<input type="submit" class="btn btn-default btn-lg" value="Go back">
+				</form>
+			</div>
+		</div>
+	</div>
 
 </body>
 </html>

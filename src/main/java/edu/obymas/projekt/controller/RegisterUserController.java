@@ -1,4 +1,4 @@
-package edu.obymas.projekt.controller.user;
+package edu.obymas.projekt.controller;
 
 import java.util.Locale;
 
@@ -20,7 +20,6 @@ import edu.obymas.projekt.domain.service.RoleService;
 import edu.obymas.projekt.domain.service.UserService;
 
 @Controller
-@RequestMapping(value = "/user")
 public class RegisterUserController {
 	
 	@Autowired
@@ -37,13 +36,13 @@ public class RegisterUserController {
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
     public ModelAndView showNewForm(Locale locale, Model model) {
 		
-		ModelAndView modelAndView = new ModelAndView("admin/add-user");
+		ModelAndView modelAndView = new ModelAndView("register");
 		
 		return modelAndView;
     }
 	
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-    public ModelAndView onSubmit(@ModelAttribute("userName") String userName,@ModelAttribute("password") String  password,
+    public String onSubmit(@ModelAttribute("userName") String userName,@ModelAttribute("password") String  password,
     	 Locale locale, Model model) {
 		
 		User addedUser=userService.createUser(userName, password, "Player");
@@ -52,7 +51,7 @@ public class RegisterUserController {
 		
 		ModelAndView modelAndView = new ModelAndView("home");
 		
-		return modelAndView;
+		return "redirect:/";
     }
 	
 }
