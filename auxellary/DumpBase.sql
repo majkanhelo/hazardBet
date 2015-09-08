@@ -136,8 +136,8 @@ INSERT INTO Tournaments_has_Teams VALUES (1,4);
 INSERT INTO Tournaments_has_Teams VALUES (2,1);
 INSERT INTO Tournaments_has_Teams VALUES (2,4);
 
-INSERT INTO Games VALUES (1,1,1,2,'2015-01-01',null,null);
-INSERT INTO Games VALUES (2,1,3,4,'2015-03-12',null,null);
+INSERT INTO Games VALUES (1,1,1,2,'2015-01-01',"",0);
+INSERT INTO Games VALUES (2,1,3,4,'2015-03-12',"",0);
 INSERT INTO Games VALUES (3,2,4,1,'2015-06-25',"3:1",1);
 
 INSERT INTO Bets VALUES (1, 3.50,3.50,3.50,false);
