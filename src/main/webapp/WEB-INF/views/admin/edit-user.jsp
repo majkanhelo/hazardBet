@@ -279,13 +279,13 @@ body {
 	</div>
 
 	<div class="row">
-		<div class="col-sm-8 col-sm-offset-2">
+		<div class="col-sm-6 col-sm-offset-3">
 			<form class="form-signin" action="" method="POST">
-				<label for="inputLogin" class="sr-only">Login</label> <input
-					type="text" name="userName" id="inputLogin" class="form-control"
-					placeholder="Login" required autofocus value="${userName }" /> <label
-					for="inputPassword" class="sr-only">Password</label> <input
-					type="password" name="password" id="inputPassword"
+				<label for="inputLogin" class="sr-only">Login</label> 
+				<input type="text" name="userName" id="inputLogin" class="form-control"
+					placeholder="Login" required autofocus value="${userName }" /> 
+				<label for="inputPassword" class="sr-only">Password</label> 
+				<input type="password" name="password" id="inputPassword"
 					class="form-control" placeholder="Password" value="${password }"
 					required />
 				<c:choose>
@@ -312,20 +312,20 @@ body {
 		</div>
 	</div>
 
-	<div class="row" style="margin-top: 20px;">
-		<div class="col-sm-10 col-sm-offset-2">
-			<div class="col-sm-2 col-sm-offset-3">
-				<form action="/" method="get">
-					<input type="submit" class="btn btn-default btn-lg" value="Go back">
-				</form>
-			</div>
-			<div class="col-sm-2">
-				<form action="deleteUser" method="post">
-					<input type="submit" class="btn btn-default btn-lg"
-						value="Delete user">
-				</form>
-			</div>
-		</div>
+	<div class="row">
+	  <div class="col-sm-6 col-sm-offset-3">
+		<form action="deleteUser" method="post" class="form-signin">
+			<input type="submit" class="btn btn-default btn-lg" value="Delete user">
+		</form>
+	  </div>
+	</div>
+
+	<div class="row">
+	  <div class="col-sm-6 col-sm-offset-3">
+		<form action="/admin/userList" method="get" class="form-signin">
+			<input type="submit" class="btn btn-default btn-lg" value="Go back">
+		</form>
+	  </div>
 	</div>
 
 </body>

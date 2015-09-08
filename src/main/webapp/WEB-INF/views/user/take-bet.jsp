@@ -279,12 +279,32 @@ body {
         </div>
     </form>
 
-	<div class="row" style="margin-top: 20px; margin-left:40px;">
+	<!-- <div class="row" style="margin-top: 20px; margin-left:40px;">
 		<div class="col-sm-4 col-sm-offset-4">
 			<form action="/" method="get">
 				<input type="submit" class="btn btn-default btn-lg" value="Go back">
 			</form>
 		</div>
-	</div>
+	</div> -->
+
+  <!-- <div class="row" style="margin-top:20px;">
+    <div class="col-sm-4 col-sm-offset-4">
+      <form action="/user/betsToTake" method="get">
+        <input type="submit" class="btn btn-default btn-lg" value="Go back">
+      </form>
+    </div>
+  </div> -->
+
+  <div class="row">
+    <div class="col-sm-10 col-sm-offset-2">
+      <div class="col-sm-2 col-sm-offset-3">
+        <form action="/user/betsToTake" method="get">
+          <input type="submit" class="btn btn-default btn-lg" value="Go back">
+        </form>
+      </div>
+    </div>
+  </div>
+
+
 </body>
 </html>

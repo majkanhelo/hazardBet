@@ -282,14 +282,14 @@ function myFunction() {
 
 	
 	<div class="row">
-		<div class="col-sm-8 col-sm-offset-2">
-			<form action="/admin/game/tournament/${tournamentId}" method="post" class="form-signin">
+		<div class="col-sm-4 col-sm-offset-4">
+			<form action="/admin/game/tournament/${tournamentId}" method="post">
 
 				<div class="row">
-					<div class="col-sm-6">
+					<div class="col-sm-4">
 						Add home team:
 					</div>
-					<div class="col-sm-6">
+					<div class="col-sm-8">
 						<select name="homeTeam" id="homeSelect" onchange="myFunction()" class="form-control">
 							<c:forEach var="team" items="${teams}">
 								<option value="${team.id }">${team.name}</option>
@@ -298,10 +298,10 @@ function myFunction() {
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-sm-6">
+					<div class="col-sm-4">
 						Add guest team:
 					</div>
-					<div class="col-sm-6">
+					<div class="col-sm-8">
 						<select name="guestTeam" id="guestSelect" onchange="myFunction()" class="form-control">
 							<c:forEach var="team" items="${teams}">
 								<c:if test="${team.id != homeTeam.id }">
@@ -312,45 +312,53 @@ function myFunction() {
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-sm-6">
+					<div class="col-sm-4">
 						Game date:
 					</div>
-					<div class="col-sm-6">
+					<div class="col-sm-8">
      					<input type="date" name="gameDate" id="inputDate" class="form-control" placeholder="Date" />	
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-sm-6">
+					<div class="col-sm-4">
 						Home load:
 					</div>
-					<div class="col-sm-6">
+					<div class="col-sm-8">
      					<input type="number" step=0.01  name="homeLoad" id="inputDate" class="form-control" placeholder="Home load" min="0"/>	
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-sm-6">
-						Guest load
+					<div class="col-sm-4">
+						Guest load:
 					</div>
-					<div class="col-sm-6">
+					<div class="col-sm-8">
      					<input type="number" step=0.01  name="guestLoad" id="inputDate" class="form-control" placeholder="Guest load" min="0" />	
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-sm-6">
-						Draw load
+					<div class="col-sm-4">
+						Draw load:
 					</div>
-					<div class="col-sm-6">
+					<div class="col-sm-8">
      					<input type="number" step=0.01  name="drawLoad" id="inputDate" class="form-control" placeholder="Draw load" min="0"/>	
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-sm-6">
+					<div class="col-sm-4">
 						<input type="submit" value="Save" class="btn btn-default btn-lg">
 					</div>
 				</div>
 			</form>
 		</div>
 	</div>
+
+  <div class="row" style="margin-top:20px;">
+    <div class="col-sm-4 col-sm-offset-4">
+      <form action="/admin/game/" method="get">
+        <input type="submit" class="btn btn-default btn-lg" value="Go back">
+      </form>
+    </div>
+  </div>
 
 	
 </body>

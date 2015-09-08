@@ -275,6 +275,14 @@ body {
         </div>
      </form>
 
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+          <form action="/admin/tournaments" method="get" class="form-signin">
+            <input type="submit" class="btn btn-default btn-lg" value="Go back">
+          </form>
+        </div>
+    </div>
+
 
 </body>
 </html>

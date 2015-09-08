@@ -282,14 +282,17 @@ body {
      		</form>
 		</div>
 	</div>
+
+  <div class="row">
+    <div class="col-sm-10 col-sm-offset-2">
+      <div class="col-sm-2 col-sm-offset-3">
+        <form action="/" method="get">
+          <input type="submit" class="btn btn-default btn-lg" value="Go back">
+        </form>
+      </div>
+    </div>
+  </div>
 	
-	<div class="row" style="margin-top:20px;">
-		<div class="col-sm-4 col-sm-offset-4">
-			<form action="/" method="get">
-				<input type="submit" class="btn btn-default btn-lg" value="Go back">
-			</form>
-		</div>
-	</div>
 
 </body>
 </html>

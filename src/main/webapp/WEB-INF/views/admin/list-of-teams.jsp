@@ -290,9 +290,11 @@ body {
 	</div>
 
 
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-4">
 	<c:if test="${not empty notInTeams }">
-		<form action="/admin/tournament/${tournamentId }/addTeam" method="post" class="form-signin">
-			<a>Add new team:</a> 
+		<form action="/admin/tournament/${tournamentId }/addTeam" method="post">
+			Add new team:
 			<select name="newTeam" class="form-control" id="newTeam">
 				<c:forEach var="team" items="${notInTeams}">
 					<option selected="selected" value="${team.id }">
@@ -300,23 +302,17 @@ body {
 					</option>
 				</c:forEach>
 			</select> 
-			<input type="submit" value="Save" class="btn btn-default btn-lg">
+			<input type="submit" value="Save" class="btn btn-default btn-lg" style="margin-top: 20px;">
 		</form>
 	</c:if>
+  </div>
+  </div>
 	
-	<div class="row">
+	<div class="row" style="margin-top: 20px;">
 		<div class="col-sm-4 col-sm-offset-4">
 			<a href="/admin/tournaments">
 				<input type="submit" value="Go Back To Tournaments" class="btn btn-default btn-lg" />
 			</a>	
-		</div>
-	</div>
-	
-	<div class="row" style="margin-top:20px;">
-		<div class="col-sm-4 col-sm-offset-4">
-			<form action="/" method="get">
-				<input type="submit" class="btn btn-default btn-lg" value="Go back">
-			</form>
 		</div>
 	</div>
 
