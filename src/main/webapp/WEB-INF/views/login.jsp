@@ -249,8 +249,8 @@ body {
 	      		<ul class="nav navbar-nav">
         			<li><a href="#sec1">About</a></li>        		
       			</ul>
-    		</div>
-   		</div>
+    		</div>        
+   		</div>     
 	</div>
 
 	<!-- Login form -->
