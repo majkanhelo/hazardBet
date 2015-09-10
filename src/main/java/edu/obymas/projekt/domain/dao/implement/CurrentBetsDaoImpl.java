@@ -16,7 +16,7 @@ public class CurrentBetsDaoImpl extends GenericDaoImpl<Player> {
 
 	public List<CurrentBet> getPlayerCurrentBets(long userId) {
 		  Query query = this.entityManager.createNativeQuery("Select t.Name, c.Bet_Choose, g.PlayDate, "
-        		+" h.Name as home, o.Name as guest, c.BetCash, b.DrawLoad, b.HomeLoad, b.GuestLoad "
+        		+" h.Name as home, o.Name as guest, c.BetCash,  b.HomeLoad,  b.GuestLoad, b.DrawLoad "
 				+"from Coupons as c "
         		+"join Bets as b on c.Bet_Game_Id=b.Game_Id "
         		+"join Games as g on g.Id=b.Game_Id "
